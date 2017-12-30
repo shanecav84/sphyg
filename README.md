@@ -21,21 +21,31 @@ Or install it yourself as:
 
 ## Usage
 
-Pass the _message_ you want to display while your command is running, an _options_ hash, 
+Pass the _message_ you want to display while your command is running
 and a _block_ containing your long-running command to `Sphyg.pulse`.
 
 ```ruby
-> message = 'Please wait'
-> options = { kind: :wave }
-> ::Sphyg.pulse(message, options) { sleep }
+> ::Sphyg.pulse('Please wait') { sleep }
 Please wait ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ # animated 
 ```
 
 ### Options
 
-#### Kind
+You can also pass an _options_ hash to `::Sphyg.pulse` using the following keys:
 
-See [`Sphyg::FRAMES`](lib/sphyg/frames.rb) for throbber kinds and their associated animation frames.
+#### `:kind`
+
+Configure which kind of throbber you would like to use. Available kinds and their associated frames:
+
+| Kind | Frames |
+| ---- | ------ |
+| :ascii | \| / - \ |
+| :elipsis | . .. ... .. |
+| :heart | ❤️ 🧡 💛 💚 💙 💜 |
+| :heroku | ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ |
+| :moon | 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 |
+| :time | 🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 |
+| :wave | ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ |
 
 ## Development
 
