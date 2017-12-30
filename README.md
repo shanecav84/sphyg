@@ -30,7 +30,7 @@ Please wait ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ # animated
 
 #### Kind
 
-See [`Sphyg::FRAMES`](sphyg/frames.rb) for throbber kinds and their associated animation frames.
+See [`Sphyg::FRAMES`](lib/sphyg/frames.rb) for throbber kinds and their associated animation frames.
 
 ## Development
 
