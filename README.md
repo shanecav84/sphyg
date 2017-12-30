@@ -41,7 +41,7 @@ Configure which kind of throbber you would like to use. Available kinds and thei
 | ---- | ------ |
 | `:ascii` | \| / - \ |
 | `:elipsis` | . .. ... .. |
-| `:heart` | ❤️ 🧡 💛 💚 💙 💜 |
+| `:heart` | ❤ 🧡 💛 💚 💙 💜 |
 | `:heroku` | ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ |
 | `:moon` | 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 |
 | `:time` | 🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 |
