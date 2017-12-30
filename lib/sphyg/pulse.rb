@@ -2,10 +2,10 @@ require 'sphyg/frames'
 
 module Sphyg
   class Pulse
-    def initialize(message, options = { kind: :wave })
+    def initialize(message, options)
       @message = message
-      @options = options
-      @frames = Sphyg::FRAMES[options[:kind]]
+      @options = options || { kind: :wave }
+      @frames = Sphyg::FRAMES[@options[:kind]]
     end
 
     def run(&blk)
