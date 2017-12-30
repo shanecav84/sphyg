@@ -8,10 +8,10 @@ RSpec.describe Sphyg do
       options = { kind: :wave }
       mock_pulse = double('Sphyg::Pulse')
 
-      expect(::Sphyg::Pulse)
-        .to receive(:new)
-        .with(message, options)
-        .and_return(mock_pulse)
+      expect(::Sphyg::Pulse).
+        to receive(:new).
+        with(message, options).
+        and_return(mock_pulse)
       expect(mock_pulse).to receive(:run).and_yield
 
       described_class.pulse(message, options) { sleep 1 }

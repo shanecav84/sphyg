@@ -1,6 +1,7 @@
 require 'sphyg/pulse'
 require 'sphyg/version'
 
+# Top-level namespace
 module Sphyg
   # Presents a message and throbber
   # Params:

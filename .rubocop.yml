@@ -1,0 +1,6 @@
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# The trailing style can be copy-and-pasted into a console
+Layout/DotPosition:
+  EnforcedStyle: trailing
