@@ -38,7 +38,7 @@ module Sphyg
     # be completely replaced by the following frame. This padding ensures that each line
     # is longer enough to overwrite the previous frame.
     def padding
-      "\s" * @frames.max { |a, b| a.length <=> b.length }.length
+      "\s" * @frames.max_by(&:length).length
     end
 
     def print_message_and_pulser(pulser)
