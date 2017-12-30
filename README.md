@@ -27,7 +27,7 @@ and a _block_ containing your long-running command to `Sphyg.pulse`.
 ```ruby
 > message = 'Please wait'
 > options = { kind: :wave }
-> ::Sphyg.pulse(message, options) { while true; sleep 1; end }
+> ::Sphyg.pulse(message, options) { sleep }
 Please wait ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ # animated 
 ```
 
