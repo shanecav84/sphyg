@@ -14,6 +14,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - None
 
+## 0.2.1 (2017-12-30)
+### Added
+- None
+
+### Changed
+- None
+
+### Fixed
+- Fixed nil error when not passing an options hash to `Sphyg.pulse`
+
 ## 0.2.0 (2017-12-30)
 ### Added
 - Convenience method `::Sphyg.pulse`
