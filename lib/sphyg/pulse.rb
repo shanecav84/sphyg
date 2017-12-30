@@ -37,7 +37,7 @@ module Sphyg
 
     # For unitary-frame loops, if a frame is longer than its counterparts, then
     # it will not be completely replaced by the following frame. This padding
-    # ensures that each line is longer enough to overwrite the previous frame.
+    # ensures that each line is long enough to overwrite the previous frame.
     def padding
       "\s" * @frames.max_by(&:length).length
     end
@@ -49,6 +49,7 @@ module Sphyg
         padding: padding
     end
 
+    # Loops through each individual frame of the given sequence
     def unitary_frame_loop(sequence, pulse_rate = 0.1)
       frames_index = 0
       loop do
@@ -58,6 +59,7 @@ module Sphyg
       end
     end
 
+    # Cyclically shifts frames along sequence
     def wave
       frames_index = 0
       wave = frames(:wave)
