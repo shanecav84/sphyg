@@ -21,8 +21,13 @@ Or install it yourself as:
 
 ## Usage
 
+Pass the _message_ you want to display while your command is running, an _options_ hash, 
+and a _block_ containing your long-running command to `Sphyg.pulse`.
+
 ```ruby
-> ::Sphyg::Pulse.new('Please wait', { kind: :wave }).run { while true; sleep 1; end }
+> message = 'Please wait'
+> options = { kind: :wave }
+> ::Sphyg.pulse(message, options) { while true; sleep 1; end }
 Please wait ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ # animated 
 ```
 
