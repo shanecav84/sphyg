@@ -1,10 +1,10 @@
 require 'spec_helper'
-require 'sphyg/throbbers'
+require 'sphyg'
 require 'sphyg/pulse'
 
 module Sphyg
   RSpec.describe Pulse do
-    Sphyg::Throbbers::KINDS.each_key do |kind|
+    Sphyg::Throbber::KINDS.each_key do |kind|
       it "using :#{kind} doesn't raise an error" do
         message = "Testing #{kind}"
         expect { described_class.new(message, kind: kind).run { sleep 1 } }.
