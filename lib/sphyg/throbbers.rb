@@ -28,20 +28,20 @@ module Sphyg
     class Wave < ::Sphyg::Throbber
       def run
         frames_index = 0
-        wave = frames.dup
+        current_frames = frames.dup
         loop do
-          print_message_and_pulser(wave.join)
-          shift_frames(frames_index, wave)
+          print_message_and_pulser(current_frames.join)
+          current_frames << cycle_frames(current_frames, frames_index)
           sleep pulse_rate
         end
       end
 
       private
 
-      def shift_frames(frames_index, wave)
-        wave.shift
-        frames_index = (frames_index + 1) % frames.length
-        wave << frames[frames_index]
+      def cycle_frames(current_frames, current_frames_index)
+        current_frames.shift
+        new_frames_index = (current_frames_index + 1) % current_frames.length
+        current_frames[new_frames_index]
       end
     end
   end
