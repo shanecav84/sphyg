@@ -3,9 +3,9 @@ require 'sphyg/throbbers'
 module Sphyg
   # Generates and displays a message and throbber for a long-running command
   class Pulse
-    def initialize(message, options = { kind: :wave })
+    def initialize(message, options)
       @message = message
-      @options = options
+      @options = options || { kind: :wave }
       @throbber = Sphyg::THROBBERS[@options[:kind]].dup
     end
 
