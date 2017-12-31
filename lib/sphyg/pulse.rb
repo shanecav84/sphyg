@@ -37,6 +37,10 @@ module Sphyg
         padding: padding
     end
 
+    def pulse_rate
+      @throbber[:pulse_rate]
+    end
+
     def run_throbber
       case @options[:kind]
       when :ascii, :elipsis, :heart, :heroku, :moon, :time
@@ -52,7 +56,7 @@ module Sphyg
       loop do
         print_message_and_pulser(frames[frames_index])
         frames_index = (frames_index + 1) % frames.length
-        sleep @throbber[:pulse_rate]
+        sleep pulse_rate
       end
     end
 
@@ -65,7 +69,7 @@ module Sphyg
         wave.shift
         frames_index = (frames_index + 1) % frames.length
         wave << frames[frames_index]
-        sleep 0.1
+        sleep pulse_rate
       end
     end
   end
