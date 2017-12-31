@@ -10,19 +10,7 @@ module Sphyg
     end
 
     def run(&blk)
-      thr = Thread.new do
-        case @options[:kind]
-        when :ascii then unitary_frame_loop
-        when :elipsis then unitary_frame_loop
-        when :heart then unitary_frame_loop
-        when :heroku then unitary_frame_loop
-        when :moon then unitary_frame_loop
-        when :time then unitary_frame_loop
-        when :wave then wave
-        else wave
-        end
-      end
-
+      thr = Thread.new { run_throbber }
       yield blk
     ensure
       Thread.kill(thr)
@@ -47,6 +35,15 @@ module Sphyg
         message: @message,
         pulser: pulser,
         padding: padding
+    end
+
+    def run_throbber
+      case @options[:kind]
+      when :ascii, :elipsis, :heart, :heroku, :moon, :time
+        unitary_frame_loop
+      when :wave then wave
+      else wave
+      end
     end
 
     # Loops through each individual frame of the given sequence
