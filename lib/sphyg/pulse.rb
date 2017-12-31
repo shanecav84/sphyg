@@ -12,11 +12,17 @@ module Sphyg
       # Note: the block will continue to run even if our throbber crashed. This
       # is more user-frindly than setting `abort_on_exception` for our thread.
       # TODO: use `Thread#reporting_on_exception` for Ruby versions >= 2.4
-      thr = ::Thread.new { ::Sphyg::Throbber.new(@message, @options[:kind]).run }
+      thr = ::Thread.new { run_throbber }
       yield blk
     ensure
       Thread.kill(thr)
       print "\n"
+    end
+
+    private
+
+    def run_throbber
+      ::Sphyg::Throbber.new(@message, @options[:kind]).run
     end
   end
 end

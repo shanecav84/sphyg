@@ -1,5 +1,6 @@
 module Sphyg
   module Strategies
+    # Strategy template
     class Base
       attr_accessor :message
       attr_accessor :frames
@@ -15,9 +16,10 @@ module Sphyg
 
       private
 
-      # For unitary-frame loops, if a frame is longer than its counterparts, then
-      # it will not be completely replaced by the following frame. This padding
-      # ensures that each line is long enough to overwrite the previous frame.
+      # For unitary-frame loops, if a frame is longer than its counterparts,
+      # then it will not be completely replaced by the following frame. This
+      # padding ensures that each line is long enough to overwrite the previous
+      # frame.
       def padding
         "\s" * frames.max_by(&:length).length
       end

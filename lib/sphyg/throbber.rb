@@ -17,8 +17,11 @@ module Sphyg
     def initialize(message, kind)
       @message = message
       @kind = kind || :wave
-      @frames = KINDS[kind][:frames]
-      @pulse_rate = KINDS[kind][:pulse_rate]
+      @strategy_params = [
+        message,
+        KINDS[kind][:frames],
+        KINDS[kind][:pulse_rate]
+      ]
     end
 
     def run
@@ -30,9 +33,9 @@ module Sphyg
     def strategy
       case @kind
       when :ascii, :elipsis, :heart, :heroku, :moon, :time
-        ::Sphyg::Strategies::UnitaryFrameLoop.new(@message, @frames, @pulse_rate)
+        ::Sphyg::Strategies::UnitaryFrameLoop.new(*@strategy_params)
       when :wave
-        ::Sphyg::Strategies::Wave.new(@message, @frames, @pulse_rate)
+        ::Sphyg::Strategies::Wave.new(*@strategy_params)
       end
     end
   end
