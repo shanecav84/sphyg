@@ -59,7 +59,7 @@ module Sphyg
     # Cyclically shifts frames along sequence
     def wave
       frames_index = 0
-      wave = frames
+      wave = frames.dup
       loop do
         print_message_and_pulser(wave.join)
         wave.shift
