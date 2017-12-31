@@ -3,10 +3,10 @@ require 'sphyg/frames'
 module Sphyg
   # Generates and displays a message and throbber for a long-running command
   class Pulse
-    def initialize(message, options)
+    def initialize(message, options = { kind: :wave })
       @message = message
-      @options = options || { kind: :wave }
-      @frames = Sphyg::FRAMES[@options[:kind]]
+      @options = options
+      @frames = Sphyg::FRAMES[@options[:kind]].dup
     end
 
     def run(&blk)
