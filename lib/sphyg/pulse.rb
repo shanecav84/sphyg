@@ -5,7 +5,7 @@ module Sphyg
   class Pulse
     def initialize(message, options = nil)
       @message = message
-      @options = options
+      @options = options || {}
       @kind = @options[:kind] || :wave
     end
 
