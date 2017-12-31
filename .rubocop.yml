@@ -4,3 +4,7 @@ Layout/AlignParameters:
 # The trailing style can be copy-and-pasted into a console
 Layout/DotPosition:
   EnforcedStyle: trailing
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
