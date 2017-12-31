@@ -4,7 +4,7 @@ module Sphyg
   module Throbbers
     KINDS = {
       ascii: { frames: %w[| / - \\], pulse_rate: 0.1 },
-      elipsis: { frames: ['.', '..', '...', '..'], pulse_rate: 0.2 },
+      elipsis: { frames: %w[. .. ... ..], pulse_rate: 0.2 },
       heart: { frames: %w[❤️ 🧡 💛 💚 💙 💜], pulse_rate: 0.1 },
       heroku: { frames: %w[⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷], pulse_rate: 0.1 },
       moon: { frames: %w[🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘], pulse_rate: 0.2 },
