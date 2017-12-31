@@ -31,11 +31,17 @@ module Sphyg
         wave = frames.dup
         loop do
           print_message_and_pulser(wave.join)
-          wave.shift
-          frames_index = (frames_index + 1) % frames.length
-          wave << frames[frames_index]
+          shift_frames(frames_index, wave)
           sleep pulse_rate
         end
+      end
+
+      private
+
+      def shift_frames(frames_index, wave)
+        wave.shift
+        frames_index = (frames_index + 1) % frames.length
+        wave << frames[frames_index]
       end
     end
   end
