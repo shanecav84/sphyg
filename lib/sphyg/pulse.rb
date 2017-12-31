@@ -3,10 +3,10 @@ require 'sphyg/throbbers'
 module Sphyg
   # Handles threading and running the throbber
   class Pulse
-    def initialize(message, options)
+    def initialize(message, options = nil)
       @message = message
-      @options = options || { kind: :wave }
-      @kind = @options[:kind]
+      @options = options
+      @kind = @options[:kind] || :wave
     end
 
     def run(&blk)
