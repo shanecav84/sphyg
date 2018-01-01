@@ -2,9 +2,9 @@ module Sphyg
   module Strategies
     # Strategy template
     class Base
-      attr_accessor :message
-      attr_accessor :frames
-      attr_accessor :pulse_rate
+      attr_reader :message
+      attr_reader :frames
+      attr_reader :pulse_rate
 
       def initialize(message, frames, pulse_rate)
         @message = message
