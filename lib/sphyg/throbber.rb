@@ -7,7 +7,7 @@ module Sphyg
     KINDS = {
       ascii: { frames: %w[| / - \\], pulse_rate: 0.1 },
       elipsis: { frames: %w[. .. ... ..], pulse_rate: 0.2 },
-      heart: { frames: %w[❤️ 🧡 💛 💚 💙 💜], pulse_rate: 0.1 },
+      heart: { frames: %w[🧡 💛 💚 💙 💜], pulse_rate: 0.1 },
       heroku: { frames: %w[⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷], pulse_rate: 0.1 },
       moon: { frames: %w[🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘], pulse_rate: 0.2 },
       time: { frames: %w[🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚], pulse_rate: 1 },
