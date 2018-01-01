@@ -4,16 +4,6 @@ require 'sphyg/enumerators/rotate'
 module Sphyg
   # Generates and displays a throbber with a message
   class Throbber
-    KINDS = {
-      ascii: { frames: %w[| / - \\], pulse_rate: 0.1 },
-      elipsis: { frames: %w[. .. ... ..], pulse_rate: 0.2 },
-      heart: { frames: %w[🧡 💛 💚 💙 💜], pulse_rate: 0.1 },
-      heroku: { frames: %w[⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷], pulse_rate: 0.1 },
-      moon: { frames: %w[🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘], pulse_rate: 0.2 },
-      time: { frames: %w[🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚], pulse_rate: 1 },
-      wave: { frames: %w[⡀ ⠄ ⠂ ⠁ ⠂ ⠄], pulse_rate: 0.1 }
-    }.freeze
-
     def initialize(message, kind)
       @message = message
       @kind = kind || :wave

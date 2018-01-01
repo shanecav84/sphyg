@@ -3,6 +3,44 @@ require 'sphyg/version'
 
 # Top-level namespace
 module Sphyg
+  THROBBERS = {
+    ascii: {
+      enumerator: '::Sphyg::Enumerators::Cycle',
+      frames: %w[| / - \\],
+      pulse_rate: 0.1
+    },
+    elipsis: {
+      enumerator: '::Sphyg::Enumerators::Cycle',
+      frames: %w[. .. ... ..],
+      pulse_rate: 0.2
+    },
+    heart: {
+      enumerator: '::Sphyg::Enumerators::Cycle',
+      frames: %w[🧡 💛 💚 💙 💜],
+      pulse_rate: 0.1
+    },
+    heroku: {
+      enumerator: '::Sphyg::Enumerators::Cycle',
+      frames: %w[⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷],
+      pulse_rate: 0.1
+    },
+    moon: {
+      enumerator: '::Sphyg::Enumerators::Cycle',
+      frames: %w[🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘],
+      pulse_rate: 0.2
+    },
+    time: {
+      enumerator: '::Sphyg::Enumerators::Cycle',
+      frames: %w[🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚],
+      pulse_rate: 1
+    },
+    wave: {
+      enumerator: '::Sphyg::Enumerators::Rotate',
+      frames: %w[⡀ ⠄ ⠂ ⠁ ⠂ ⠄],
+      pulse_rate: 0.1
+    }
+  }.freeze
+
   # Presents a message and throbber
   # Params:
   # +message+:: friendly +string+ to display that indicates a command is running
