@@ -53,7 +53,7 @@ Configure which kind of throbber you would like to use. Available kinds and thei
 
 #### `:frames`
 
-An array of glyphs from which to choose to display.
+An array of strings from which to choose to display.
 
 #### `:enumerator`
 
