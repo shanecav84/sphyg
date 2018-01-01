@@ -9,8 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Shane Cavanaugh']
   spec.email         = ['shane@shanecav.net']
 
-  spec.summary       = 'Throbbers for command line programs'
-  spec.description   = 'Throbbers for command line programs'
+  spec.summary       = 'Configure custom throbbers for command line programs'
+  spec.description   = "'Sphygmos' is the Greek word for 'pulse'. Sphyg " \
+    'provides an interface for creating throbbers to indicate that your ' \
+    'long-running command line program still has a pulse.'
   spec.homepage      = nil
   spec.license       = 'MIT'
 
