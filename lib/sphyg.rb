@@ -48,7 +48,7 @@ module Sphyg
   # +options+:: configuration +hash+
   # +&blk+:: a +block+ containing a long-running command to run while displaying
   #   the message and throbber
-  def self.pulse(message, options = {}, &blk)
+  def self.pulse(message, options = nil, &blk)
     ::Sphyg::Pulse.new(message, options).run { yield blk }
   end
 end

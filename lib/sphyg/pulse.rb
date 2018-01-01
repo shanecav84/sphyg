@@ -5,7 +5,7 @@ module Sphyg
   class Pulse
     def initialize(message, options = {})
       @message = message
-      @options = ::Sphyg::THROBBERS[:wave].merge(options)
+      @options = parse_options(options)
     end
 
     def run(&blk)
@@ -20,6 +20,16 @@ module Sphyg
     end
 
     private
+
+    def parse_options(options)
+      if options.nil?
+        ::Sphyg::THROBBERS[:wave]
+      elsif options[:kind]
+        ::Sphyg::THROBBERS[options[:kind]]
+      else
+        ::Sphyg::THROBBERS[:wave].merge(options)
+      end
+    end
 
     def throbber
       ::Sphyg::Throbber.new(
