@@ -56,14 +56,14 @@ An array of glyphs from which to choose to display.
 
 #### `:enumerator`
 
-The string representation of an object that is used to generate successive frames
+The string name of an object that is used to generate successive frames
 to display. Must respond to `#next`. See [`Sphyg::Enumerators`](lib/sphyg/enumerators)
 for examples.
 
 #### `:rate`
 
-An `Integer` or `Float` representing the 'frame' rate of the throbber. Sphyg 
-will cycle through the enumerator at this value.
+An `Integer` or `Float` representing the 'frame' rate of the throbber in 
+seconds. Sphyg will cycle through the enumerator at this value.
 
 ## Development
 
