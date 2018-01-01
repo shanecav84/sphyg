@@ -14,6 +14,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - None
 
+## 0.3.0 (2018-01-01)
+### Added
+-  API for configuring custom throbbers
+
+### Changed
+- None
+
+### Fixed
+- None
+
 ## 0.2.1 (2017-12-30)
 ### Added
 - None
