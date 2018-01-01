@@ -1,4 +1,6 @@
 require 'rspec'
+require 'sphyg/pulse'
+require 'sphyg/throbber'
 
 Thread.abort_on_exception = true
 
