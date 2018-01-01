@@ -58,8 +58,21 @@ An array of glyphs from which to choose to display.
 #### `:enumerator`
 
 The string name of an object that is used to generate successive frames
-to display. Must respond to `#next`. See [`Sphyg::Enumerators`](lib/sphyg/enumerators)
-for examples.
+to display. Must respond to `#next`. For example:
+
+```ruby
+Randomizer = Struct.new(:frames) { def next; frames.sample; end }
+options = {
+  frames: %w[a b c],
+  enumerator: 'Randomizer',
+  rate: 0.1
+}
+> Sphyg.pulse('Please wait', options) { sleep }
+Please wait a # Will display a random value from `frames` every 0.1 seconds alongside the message
+
+```
+
+See [`Sphyg::Enumerators`](lib/sphyg/enumerators) for more examples.
 
 #### `:rate`
 
