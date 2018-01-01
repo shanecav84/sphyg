@@ -23,7 +23,7 @@ module Sphyg
 
     def run
       loop do
-        print_message_and_pulser(eunmerator.next)
+        print_message_and_enumeration(enumerator.next)
         sleep @pulse_rate
       end
     end
@@ -38,14 +38,14 @@ module Sphyg
       "\s" * @frames.max_by(&:length).length
     end
 
-    def print_message_and_pulser(pulser)
-      print format "%<message>s %<pulser>s%<padding>s\r",
+    def print_message_and_enumeration(enumeration)
+      print format "%<message>s %<enumeration>s%<padding>s\r",
         message: @message,
-        pulser: pulser,
+        enumeration: enumeration,
         padding: padding
     end
 
-    def eunmerator
+    def enumerator
       @_strategy ||= begin
         case @kind
         when :ascii, :elipsis, :heart, :heroku, :moon, :time
