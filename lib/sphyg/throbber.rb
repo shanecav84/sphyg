@@ -22,19 +22,39 @@ module Sphyg
     end
 
     def run
-      strategy.run
+      loop do
+        print_message_and_pulser(strategy.run)
+        sleep @pulse_rate
+      end
     end
 
     private
 
+    # For unitary-frame loops, if a frame is longer than its counterparts,
+    # then it will not be completely replaced by the following frame. This
+    # padding ensures that each line is long enough to overwrite the previous
+    # frame.
+    def padding
+      "\s" * @frames.max_by(&:length).length
+    end
+
+    def print_message_and_pulser(pulser)
+      print format "%<message>s %<pulser>s%<padding>s\r",
+        message: @message,
+        pulser: pulser,
+        padding: padding
+    end
+
     def strategy
-      case @kind
-      when :ascii, :elipsis, :heart, :heroku, :moon, :time
-        ::Sphyg::Strategies::UnitaryFrameLoop.new(
-          @message, @frames, @pulse_rate
-        )
-      when :wave
-        ::Sphyg::Strategies::Wave.new(@message, @frames, @pulse_rate)
+      @_strategy ||= begin
+        case @kind
+        when :ascii, :elipsis, :heart, :heroku, :moon, :time
+          ::Sphyg::Strategies::UnitaryFrameLoop.new(
+            @message, @frames, @pulse_rate
+          )
+        when :wave
+          ::Sphyg::Strategies::Wave.new(@message, @frames, @pulse_rate)
+        end
       end
     end
   end
