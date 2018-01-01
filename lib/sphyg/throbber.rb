@@ -49,9 +49,9 @@ module Sphyg
       @_strategy ||= begin
         case @kind
         when :ascii, :elipsis, :heart, :heroku, :moon, :time
-          ::Sphyg::Enumerators::Cycle.new(@message, @frames)
-        when :wave
-          ::Sphyg::Enumerators::Rotate.new(@message, @frames)
+          ::Sphyg::Enumerators::Cycle.new(@frames)
+        else
+          ::Sphyg::Enumerators::Rotate.new(@frames)
         end
       end
     end

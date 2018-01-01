@@ -4,8 +4,7 @@ module Sphyg
     class Base
       class AbstractMethodCall < StandardError; end
 
-      def initialize(message, frames)
-        @message = message
+      def initialize(frames)
         @frames = frames
       end
 
