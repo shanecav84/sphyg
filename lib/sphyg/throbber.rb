@@ -4,17 +4,17 @@ require 'sphyg/enumerators/rotate'
 module Sphyg
   # Generates and displays a throbber with a message
   class Throbber
-    def initialize(message, frames, enumerator, pulse_rate)
+    def initialize(message, frames, enumerator, rate)
       @message = message
       @frames = frames
       @enumerator = Object.const_get(enumerator).new(@frames)
-      @pulse_rate = pulse_rate
+      @rate = rate
     end
 
     def run
       loop do
         print_throbber_iteration
-        sleep @pulse_rate
+        sleep @rate
       end
     end
 

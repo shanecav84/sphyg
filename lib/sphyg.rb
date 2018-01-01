@@ -7,37 +7,37 @@ module Sphyg
     ascii: {
       enumerator: '::Sphyg::Enumerators::Cycle',
       frames: %w[| / - \\],
-      pulse_rate: 0.1
+      rate: 0.1
     },
     elipsis: {
       enumerator: '::Sphyg::Enumerators::Cycle',
       frames: %w[. .. ... ..],
-      pulse_rate: 0.2
+      rate: 0.2
     },
     heart: {
       enumerator: '::Sphyg::Enumerators::Cycle',
       frames: %w[🧡 💛 💚 💙 💜],
-      pulse_rate: 0.1
+      rate: 0.1
     },
     heroku: {
       enumerator: '::Sphyg::Enumerators::Cycle',
       frames: %w[⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷],
-      pulse_rate: 0.1
+      rate: 0.1
     },
     moon: {
       enumerator: '::Sphyg::Enumerators::Cycle',
       frames: %w[🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘],
-      pulse_rate: 0.2
+      rate: 0.2
     },
     time: {
       enumerator: '::Sphyg::Enumerators::Cycle',
       frames: %w[🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚],
-      pulse_rate: 1
+      rate: 1
     },
     wave: {
       enumerator: '::Sphyg::Enumerators::Rotate',
       frames: %w[⡀ ⠄ ⠂ ⠁ ⠂ ⠄],
-      pulse_rate: 0.1
+      rate: 0.1
     }
   }.freeze
 

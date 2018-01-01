@@ -26,7 +26,7 @@ module Sphyg
         @message,
         @options[:frames],
         @options[:enumerator],
-        @options[:pulse_rate]
+        @options[:rate]
       )
     end
   end
