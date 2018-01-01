@@ -17,7 +17,7 @@ module Sphyg
     def initialize(message, kind)
       @message = message
       @kind = kind || :wave
-      @frames = KINDS[kind][:frames],
+      @frames = KINDS[kind][:frames]
       @pulse_rate = KINDS[kind][:pulse_rate]
     end
 
@@ -34,9 +34,7 @@ module Sphyg
           @message, @frames, @pulse_rate
         )
       when :wave
-        ::Sphyg::Strategies::Wave.new(
-          @message, @frames, @pulse_rate
-        )
+        ::Sphyg::Strategies::Wave.new(@message, @frames, @pulse_rate)
       end
     end
   end
