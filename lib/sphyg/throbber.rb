@@ -1,5 +1,5 @@
-require 'sphyg/strategies/unitary_frame_loop'
-require 'sphyg/strategies/wave'
+require 'sphyg/strategies/cycle'
+require 'sphyg/strategies/rotate'
 
 module Sphyg
   # Generates and displays a throbber with a message
@@ -49,11 +49,11 @@ module Sphyg
       @_strategy ||= begin
         case @kind
         when :ascii, :elipsis, :heart, :heroku, :moon, :time
-          ::Sphyg::Strategies::UnitaryFrameLoop.new(
+          ::Sphyg::Strategies::Cycle.new(
             @message, @frames, @pulse_rate
           )
         when :wave
-          ::Sphyg::Strategies::Wave.new(@message, @frames, @pulse_rate)
+          ::Sphyg::Strategies::Rotate.new(@message, @frames, @pulse_rate)
         end
       end
     end
