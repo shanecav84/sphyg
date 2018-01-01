@@ -5,10 +5,9 @@ module Sphyg
     # Cyclically shifts frames along sequence
     class Wave < Base
       def run
-        current_frames = frames.dup
         loop do
-          print_message_and_pulser(current_frames.join)
-          current_frames.rotate!
+          print_message_and_pulser(frames.join)
+          frames.rotate!
           sleep pulse_rate
         end
       end
