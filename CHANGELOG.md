@@ -14,6 +14,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - None
 
+## 0.3.1 (2018-01-01)
+### Added
+- None
+
+### Changed
+- Update description in gemspec for rubygems.org
+
+### Fixed
+- None
+
 ## 0.3.0 (2018-01-01)
 ### Added
 -  API for configuring custom throbbers
