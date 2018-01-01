@@ -15,7 +15,7 @@ module Sphyg
       thr = ::Thread.new { run_throbber }
       yield blk
     ensure
-      Thread.kill(thr)
+      thr.kill
       print "\n"
     end
 
