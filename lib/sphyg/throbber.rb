@@ -1,5 +1,5 @@
-require 'sphyg/strategies/cycle'
-require 'sphyg/strategies/rotate'
+require 'sphyg/enumerators/cycle'
+require 'sphyg/enumerators/rotate'
 
 module Sphyg
   # Generates and displays a throbber with a message
@@ -23,7 +23,7 @@ module Sphyg
 
     def run
       loop do
-        print_message_and_pulser(strategy.run)
+        print_message_and_pulser(eunmerator.next)
         sleep @pulse_rate
       end
     end
@@ -45,13 +45,13 @@ module Sphyg
         padding: padding
     end
 
-    def strategy
+    def eunmerator
       @_strategy ||= begin
         case @kind
         when :ascii, :elipsis, :heart, :heroku, :moon, :time
-          ::Sphyg::Strategies::Cycle.new(@message, @frames)
+          ::Sphyg::Enumerators::Cycle.new(@message, @frames)
         when :wave
-          ::Sphyg::Strategies::Rotate.new(@message, @frames)
+          ::Sphyg::Enumerators::Rotate.new(@message, @frames)
         end
       end
     end
