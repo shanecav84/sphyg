@@ -49,11 +49,9 @@ module Sphyg
       @_strategy ||= begin
         case @kind
         when :ascii, :elipsis, :heart, :heroku, :moon, :time
-          ::Sphyg::Strategies::Cycle.new(
-            @message, @frames, @pulse_rate
-          )
+          ::Sphyg::Strategies::Cycle.new(@message, @frames)
         when :wave
-          ::Sphyg::Strategies::Rotate.new(@message, @frames, @pulse_rate)
+          ::Sphyg::Strategies::Rotate.new(@message, @frames)
         end
       end
     end

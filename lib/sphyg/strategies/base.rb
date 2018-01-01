@@ -3,10 +3,9 @@ module Sphyg
     # Strategy template
     class Base
       class AbstractMethodCall < StandardError; end
-      def initialize(message, frames, pulse_rate)
+      def initialize(message, frames)
         @message = message
         @frames = frames
-        @pulse_rate = pulse_rate
       end
 
       def run
