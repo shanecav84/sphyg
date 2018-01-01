@@ -1,7 +1,8 @@
 # Sphyg
 
-'Sphygmos' is the Greek word for 'pulse'. Sphyg provides [throbbers](https://en.wikipedia.org/wiki/Throbber)
-to indicate that your long-running command line program still has a pulse.
+'Sphygmos' is the Greek word for 'pulse'. Sphyg provides an interface for
+creating [throbbers](https://en.wikipedia.org/wiki/Throbber) to indicate that
+your long-running command line program still has a pulse.
 
 ## Installation
 
