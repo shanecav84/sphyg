@@ -6,10 +6,10 @@ module Sphyg
   RSpec.describe Pulse do
     Thread.abort_on_exception = true
 
-    Sphyg::Throbber::KINDS.each_key do |kind|
+    Sphyg::THROBBERS.each do |kind, config|
       it "using :#{kind} doesn't raise an error" do
         message = "Testing #{kind}"
-        expect { described_class.new(message, kind: kind).run { sleep 1 } }.
+        expect { described_class.new(message, config).run { sleep 1 } }.
           to_not raise_error
       end
     end

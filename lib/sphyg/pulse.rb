@@ -3,16 +3,16 @@ require 'sphyg/throbber'
 module Sphyg
   # Handles threading and running the throbber
   class Pulse
-    def initialize(message, options = nil)
+    def initialize(message, options = {})
       @message = message
-      @options = options || {}
+      @options = ::Sphyg::THROBBERS[:wave].merge(options)
     end
 
     def run(&blk)
       # Note: the block will continue to run even if our throbber crashed. This
       # is more user-frindly than setting `abort_on_exception` for our thread.
       # TODO: use `Thread#reporting_on_exception` for Ruby versions >= 2.4
-      thr = ::Thread.new { run_throbber }
+      thr = ::Thread.new { throbber.run }
       yield blk
     ensure
       thr.kill
@@ -21,8 +21,13 @@ module Sphyg
 
     private
 
-    def run_throbber
-      ::Sphyg::Throbber.new(@message, @options[:kind]).run
+    def throbber
+      ::Sphyg::Throbber.new(
+        @message,
+        @options[:frames],
+        @options[:enumerator],
+        @options[:pulse_rate]
+      )
     end
   end
 end

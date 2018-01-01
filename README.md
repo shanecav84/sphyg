@@ -31,7 +31,10 @@ Please wait ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ # animated
 
 ### Options
 
-You can also pass an _options_ hash to `::Sphyg.pulse` using the following keys:
+You can also pass an _options_ hash to `::Sphyg.pulse` to customize the displayed
+throbber. A throbber consists of an array of _frames_, an _enumerator_, and a
+_rate_. The following are built-in throbbers. You may use the `:kind` key to 
+choose a built-in throbber, or utilize `::Sphyg::THROBBERS` to configure them.
 
 #### `:kind`
 
@@ -46,6 +49,21 @@ Configure which kind of throbber you would like to use. Available kinds and thei
 | `:moon` | 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 |
 | `:time` | 🕛 🕐 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 |
 | `:wave` | ⡀ ⠄ ⠂ ⠁ ⠂ ⠄ |
+
+#### `:frames`
+
+An array of glyphs from which to choose to display.
+
+#### `:enumerator`
+
+The string representation of an object that is used to generate successive frames
+to display. Must respond to `#next`. See [`Sphyg::Enumerators`](lib/sphyg/enumerators)
+for examples.
+
+#### `:rate`
+
+An `Integer` or `Float` representing the 'frame' rate of the throbber. Sphyg 
+will cycle through the enumerator at this value.
 
 ## Development
 

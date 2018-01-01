@@ -4,16 +4,16 @@ require 'sphyg/enumerators/rotate'
 module Sphyg
   # Generates and displays a throbber with a message
   class Throbber
-    def initialize(message, kind)
+    def initialize(message, frames, enumerator, pulse_rate)
       @message = message
-      @kind = kind || :wave
-      @frames = KINDS[@kind][:frames]
-      @pulse_rate = KINDS[@kind][:pulse_rate]
+      @frames = frames
+      @enumerator = Object.const_get(enumerator).new(@frames)
+      @pulse_rate = pulse_rate
     end
 
     def run
       loop do
-        print_message_and_enumeration(enumerator.next)
+        print_throbber_iteration
         sleep @pulse_rate
       end
     end
@@ -25,25 +25,14 @@ module Sphyg
     # padding ensures that each line is long enough to overwrite the previous
     # frame.
     def padding
-      "\s" * @frames.max_by(&:length).length
+      @_padding ||= "\s" * @frames.max_by(&:length).length
     end
 
-    def print_message_and_enumeration(enumeration)
+    def print_throbber_iteration
       print format "%<message>s %<enumeration>s%<padding>s\r",
         message: @message,
-        enumeration: enumeration,
+        enumeration: @enumerator.next,
         padding: padding
-    end
-
-    def enumerator
-      @_strategy ||= begin
-        case @kind
-        when :ascii, :elipsis, :heart, :heroku, :moon, :time
-          ::Sphyg::Enumerators::Cycle.new(@frames)
-        else
-          ::Sphyg::Enumerators::Rotate.new(@frames)
-        end
-      end
     end
   end
 end
