@@ -4,6 +4,8 @@ require 'sphyg/pulse'
 
 module Sphyg
   RSpec.describe Pulse do
+    Thread.abort_on_exception = true
+
     Sphyg::Throbber::KINDS.each_key do |kind|
       it "using :#{kind} doesn't raise an error" do
         message = "Testing #{kind}"
