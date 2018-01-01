@@ -17,8 +17,8 @@ module Sphyg
     def initialize(message, kind)
       @message = message
       @kind = kind || :wave
-      @frames = KINDS[kind][:frames]
-      @pulse_rate = KINDS[kind][:pulse_rate]
+      @frames = KINDS[@kind][:frames]
+      @pulse_rate = KINDS[@kind][:pulse_rate]
     end
 
     def run

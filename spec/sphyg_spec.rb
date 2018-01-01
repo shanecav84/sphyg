@@ -20,28 +20,14 @@ RSpec.describe Sphyg do
     describe 'options argument' do
       it "doesn't crash when passed nil" do
         message = 'Please wait'
-        mock_pulse = double('Sphyg::Pulse')
-
-        expect(::Sphyg::Pulse).
-          to receive(:new).
-          with(message, nil).
-          and_return(mock_pulse)
-        expect(mock_pulse).to receive(:run).and_yield
-
-        described_class.pulse(message) { sleep 1 }
+        expect { described_class.pulse(message) { sleep 1 } }.
+          to_not raise_error
       end
 
       it "doesn't crash when passed an empty hash" do
         message = 'Please wait'
-        mock_pulse = double('Sphyg::Pulse')
-
-        expect(::Sphyg::Pulse).
-          to receive(:new).
-          with(message, {}).
-          and_return(mock_pulse)
-        expect(mock_pulse).to receive(:run).and_yield
-
-        described_class.pulse(message, {}) { sleep 1 }
+        expect { described_class.pulse(message, {}) { sleep 1 } }.
+          to_not raise_error
       end
     end
   end
