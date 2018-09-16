@@ -9,7 +9,7 @@ module Sphyg
     Sphyg::THROBBERS.each do |kind, config|
       it "using :#{kind} doesn't raise an error" do
         message = "Testing #{kind}"
-        expect { described_class.new(message, config).run { sleep 1 } }.
+        expect { described_class.new(message, config).run {} }.
           to_not raise_error
       end
     end
